@@ -8,9 +8,10 @@ describe('Pisanje', () =>{
         basePage.openPrivateBoard();
         whiteBoard.takePencil();
         cy.viewport(2600, 2200);
-
+//cy.pause();
         let c = data.text.split("");
-
+        whiteBoard.changeSize(80);
+     
         wBLetters.readDraw(c, 100);
     })
 })

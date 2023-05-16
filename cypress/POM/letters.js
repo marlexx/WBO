@@ -41,6 +41,9 @@ export class WBLetters {
                 case "I":
                     this.drawI(i, scale);
                     break;
+                case "J":
+                    this.drawJ(i, scale);
+                    break;
             }
             i++;
         }
@@ -137,6 +140,16 @@ export class WBLetters {
         drawLine(i, scale, "body", 2, 0, 2, 4); //moze i body jbt
         drawLine(i, scale, this.canvas, 1, 4, 3, 4);
         drawLine(i, scale, this.canvas, 1, 0, 3, 0);
+    }
+
+    drawJ(i, scale) {
+        drawLine(i, scale, "body", 3, 1, 3, 4);
+        for (let x = 1; x <= 2.8; x = x + 0.2) {
+            let D = Math.sqrt(4 * (1 - (x - 2) * (x - 2))) / 2;
+            let D1 = Math.sqrt(4 * (1 - ((x + 0.2) - 2) * ((x + 0.2) - 2))) / 2;
+            drawLine(i, scale, this.canvas, x, 1 - D, x + 0.2, 1 - D1);
+        }
+        drawLine(i, scale, this.canvas, 2.8, 0.4, 3, 1);
     }
 }
 
