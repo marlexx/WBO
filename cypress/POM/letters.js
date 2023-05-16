@@ -1,9 +1,11 @@
 var i = 0;
+var row = 1;
 function drawLine(i, scale, selector, x1, y1, x2, y2) {
+    if(x2 > 2000)row++;
     cy.get(selector)
-        .trigger('mousedown', { pageX: (3 * i * scale) + (x1 * scale), pageY: 2000 - (y1 * scale) })
-        .trigger('mousemove', { pageX: (3 * i * scale) + (x2 * scale), pageY: 2000 - (y2 * scale) })
-        .trigger('mouseup', { force: true, pageX: (3 * i * scale) + (x2 * scale), pageY: 2000 - (y2 * scale) })
+        .trigger('mousedown', { pageX: (3 * i * scale) + (x1 * scale), pageY: 500*row - (y1 * scale) })
+        .trigger('mousemove', { pageX: (3 * i * scale) + (x2 * scale), pageY: 500*row - (y2 * scale) })
+        .trigger('mouseup', { force: true, pageX: (3 * i * scale) + (x2 * scale), pageY: 500*row - (y2 * scale) })
 }
 
 export class WBLetters {
