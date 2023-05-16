@@ -10,7 +10,7 @@ describe('Pisanje', () =>{
         cy.viewport(2600, 2200);
 //cy.pause();
         let c = data.text.split("");
-        whiteBoard.changeSize(80);
+        whiteBoard.changeSize(60);
      
         wBLetters.readDraw(c, 100);
     })
