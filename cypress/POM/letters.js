@@ -1,11 +1,27 @@
 var i = 0;
 var row = 1;
-function drawLine(i, scale, selector, x1, y1, x2, y2) {
-    if(x2 > 2000)row++;
+
+function drawLine(i1, scale, selector, x1, y1, x2, y2) {
+
     cy.get(selector)
-        .trigger('mousedown', { pageX: (3 * i * scale) + (x1 * scale), pageY: 500*row - (y1 * scale) })
-        .trigger('mousemove', { pageX: (3 * i * scale) + (x2 * scale), pageY: 500*row - (y2 * scale) })
-        .trigger('mouseup', { force: true, pageX: (3 * i * scale) + (x2 * scale), pageY: 500*row - (y2 * scale) })
+        .trigger('mousedown', { pageX: (3 * i1 * scale) + (x1 * scale), pageY: 500 * row - (y1 * scale) })
+        .trigger('mousemove', { pageX: (3 * i1 * scale) + (x2 * scale), pageY: 500 * row - (y2 * scale) })
+        .trigger('mouseup', { force: true, pageX: (3 * i1 * scale) + (x2 * scale), pageY: 500 * row - (y2 * scale) })
+}
+
+function drawStart(i1, scale, selector, x1, y1){
+    cy.get(selector)
+    .trigger('mousedown', { pageX: (3 * i1 * scale) + (x1 * scale), pageY: 500 * row - (y1 * scale) })
+}
+
+function drawMove(i1, scale, selector, x2, y2){
+    cy.get(selector)
+    .trigger('mousemove', { pageX: (3 * i1 * scale) + (x2 * scale), pageY: 500 * row - (y2 * scale) })
+}
+
+function drawEnd(i1, scale, selector, x2, y2){
+    cy.get(selector)
+    .trigger('mouseup', { force: true, pageX: (3 * i1 * scale) + (x2 * scale), pageY: 500 * row - (y2 * scale) })
 }
 
 export class WBLetters {
@@ -14,8 +30,13 @@ export class WBLetters {
     }
 
     readDraw(c, scale) {
+
         for (let char of c) {
             switch (char) {
+                case " ":
+                    if (i == 0)
+                        i = -1;
+                    break;
                 case "A":
                     this.drawA(i, scale);
                     break;
@@ -46,8 +67,57 @@ export class WBLetters {
                 case "J":
                     this.drawJ(i, scale);
                     break;
+                case "K":
+                    this.drawK(i,scale);
+                    break;
+                case "L":
+                    this.drawL(i,scale);
+                    break;
+                case "M":
+                    this.drawM(i,scale);
+                    break;
+                case "N":
+                    this.drawN(i,scale);
+                    break;
+                case "O":
+                    this.drawO(i,scale);
+                    break;
+                case "P":
+                    this.drawP(i,scale);
+                    break;
+                case "Q":
+                    this.drawQ(i,scale);
+                    break;
+                case "R":
+                    this.drawR(i,scale);
+                    break;
+                case "S":
+                    this.drawS(i,scale);
+                    break;
+                case "T":
+                    this.drawT(i,scale);
+                    break;
+                case "V":
+                    this.drawV(i,scale);
+                    break;
+                case "X":
+                    this.drawX(i,scale);
+                    break;
+                case "Y":
+                    this.drawY(i,scale);
+                    break;
+                case "Z":
+                    this.drawZ(i,scale);
+                    break;
+
             }
-            i++;
+            if (i < 7)
+                i++;
+            else {
+                i = 0;
+                row = row + 1;
+            }
+
         }
     }
 
@@ -84,7 +154,7 @@ export class WBLetters {
     drawC(i, scale) {
         drawLine(i, scale, this.canvas, 0.27 + 0.6, 2, 0.3 + 0.6, 2 + (Math.sqrt(-48 - 12 * (-4.44)) / -6));
         drawLine(i, scale, this.canvas, 0.27 + 0.6, 2, 0.3 + 0.6, 2 - (Math.sqrt(-48 - 12 * (-4.44)) / -6));
-        for (let x = 0.3; x <= 3; x = x + 0.2) {
+        for (let x = 0.3; x <= 2.8; x = x + 0.2) {
             let D = 4 * x * x - 16 * x;
             let D1 = 4 * (x + 0.2) * (x + 0.2) - 16 * (x + 0.2);
             drawLine(i, scale, this.canvas, x + 0.6, 2 + (Math.sqrt(-48 - 12 * D) / -6), x + 0.2 + 0.6, 2 + (Math.sqrt(-48 - 12 * D1) / -6));
@@ -152,6 +222,180 @@ export class WBLetters {
             drawLine(i, scale, this.canvas, x, 1 - D, x + 0.2, 1 - D1);
         }
         drawLine(i, scale, this.canvas, 2.8, 0.4, 3, 1);
+    }
+
+    drawK(i, scale){
+        drawLine(i, scale, "body", 1, 0, 1, 4);
+        drawLine(i, scale, "body", 1, 2, 3, 4);
+        drawLine(i, scale, "body", 1, 2, 3, 0);
+    }
+
+    drawL(i,scale){
+        drawLine(i, scale, "body", 1, 0, 1, 4);
+        drawLine(i, scale, "body", 1, 0, 3, 0);
+    }
+
+    drawM(i,scale){
+        drawLine(i, scale, "body", 1, 0, 1, 4);
+        drawLine(i, scale, "body", 1, 4, 2, 2);
+        drawLine(i, scale, "body", 2, 2, 3, 4);
+        drawLine(i, scale, "body", 3, 0, 3, 4);
+    }
+
+    drawN(i,scale){
+        drawLine(i, scale, "body", 1, 0, 1, 4);
+        drawLine(i, scale, "body", 1, 4, 3, 0);
+        drawLine(i, scale, "body", 3, 0, 3, 4);
+    }
+
+    drawO(i,scale){
+        drawStart(i,scale, "body", 1,2);
+        for(let x = 1.05; x<=3;x=x+0.05)
+        {
+            let A1=62.24, A2=16,B1=248.96,B2=64,C=-250.72;
+           let D = A1*x*x-B1*x;
+           let y = (B2+Math.sqrt(B2*B2-4*A2*(D-C)))/(2*A2)
+            drawMove(i,scale,"body", x, y);
+        }
+        for(let x = 3; x>=1;x=x-0.05)
+        {
+            let A1=62.24, A2=16,B1=248.96,B2=64,C=-250.72;
+           let D = A1*x*x-B1*x;
+           let y = (B2-Math.sqrt(B2*B2-4*A2*(D-C)))/(2*A2)
+            drawMove(i,scale,"body", x, y);
+        }
+        drawEnd(i,scale,"body",1,2);
+
+    }
+
+    drawP(i,scale){
+        drawLine(i, scale, "body", 1, 0, 1, 4);
+        drawLine(i, scale, "body", 1, 4, 2, 4);
+        drawLine(i, scale, "body", 1, 2, 2, 2);
+
+        drawStart(i,scale, "body", 1,4);
+        for(let x = 2; x<=3;x=x+0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-6,C=12;
+           let D = A1*x*x+B1*x;
+           let y = (-B2+Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        for(let x = 3; x>=2;x=x-0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-6,C=12;
+           let D = A1*x*x+B1*x;
+           let y = (-B2-Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        drawEnd(i,scale,"body",1,2);
+    }
+
+    drawQ(i,scale){
+        drawStart(i,scale, "body", 1,2);
+        for(let x = 1.05; x<=3;x=x+0.05)
+        {
+            let A1=62.24, A2=16,B1=248.96,B2=64,C=-250.72;
+           let D = A1*x*x-B1*x;
+           let y = (B2+Math.sqrt(B2*B2-4*A2*(D-C)))/(2*A2)
+            drawMove(i,scale,"body", x, y);
+        }
+        for(let x = 3; x>=1;x=x-0.05)
+        {
+            let A1=62.24, A2=16,B1=248.96,B2=64,C=-250.72;
+           let D = A1*x*x-B1*x;
+           let y = (B2-Math.sqrt(B2*B2-4*A2*(D-C)))/(2*A2)
+            drawMove(i,scale,"body", x, y);
+        }
+        drawEnd(i,scale,"body",1,2);
+        drawLine(i, scale, "body", 2, 1, 3, 0);
+    }
+
+    drawR(i,scale){
+        drawLine(i, scale, "body", 1, 0, 1, 4);
+        drawLine(i, scale, "body", 1, 4, 2, 4);
+        drawLine(i, scale, "body", 1, 2, 2, 2);
+        drawLine(i, scale, "body", 2, 2, 3, 0);
+
+        drawStart(i,scale, "body", 1,4);
+        for(let x = 2; x<=3;x=x+0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-6,C=12;
+           let D = A1*x*x+B1*x;
+           let y = (-B2+Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        for(let x = 3; x>=2;x=x-0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-6,C=12;
+           let D = A1*x*x+B1*x;
+           let y = (-B2-Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        drawEnd(i,scale,"body",1,2);
+    }
+
+    drawS(i,scale){
+        drawStart(i,scale, "body", Math.sqrt(2)/2+2,Math.sqrt(2)/2+3);
+        for(let x = Math.sqrt(2)/2+2; x>=1;x=x-0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-6,C=12;
+           let D = A1*x*x+B1*x;
+           let y = (-B2+Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        for(let x = 1; x<=2;x=x+0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-6,C=12;
+           let D = A1*x*x+B1*x;
+           let y = (-B2-Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        drawEnd(i,scale,"body",1,2);
+
+        drawStart(i,scale, "body", 2,2);
+        for(let x = 2; x<=3;x=x+0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-2,C=4;
+           let D = A1*x*x+B1*x;
+           let y = (-B2+Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        for(let x = 3; x>=2-Math.sqrt(2)/2;x=x-0.05)
+        {
+            let A1=1, A2=1,B1=-4,B2=-2,C=4;
+           let D = A1*x*x+B1*x;
+           let y = (-B2-Math.sqrt(B2*B2-4*A2*(D+C)))/(2*A2);
+            drawMove(i,scale,"body", x, y);
+        }
+        drawEnd(i,scale,"body",2-Math.sqrt(2)/2,1-Math.sqrt(2)/2);
+    }
+
+    drawT(i,scale){
+        drawLine(i, scale, "body", 2, 0, 2, 4);
+        drawLine(i, scale, "body", 1, 4, 3, 4);
+    }
+
+    drawV(i,scale){
+        drawLine(i, scale, "body", 1, 4, 2, 0);
+        drawLine(i, scale, "body", 2, 0, 3, 4);
+    }
+
+    drawX(i,scale){
+        drawLine(i, scale, "body", 1, 0, 3, 4);
+        drawLine(i, scale, "body", 1, 4, 3, 0);
+    }
+
+    drawY(i,scale){
+        drawLine(i, scale, "body", 2, 0, 2, 2);
+        drawLine(i, scale, "body", 2, 2, 1, 4);
+        drawLine(i, scale, "body", 2, 2, 3, 4);
+    }
+
+    drawZ(i,scale){
+        drawLine(i, scale, "body", 1, 0, 3, 0);
+        drawLine(i, scale, "body", 1, 0, 3, 4);
+        drawLine(i, scale, "body", 1, 4, 3, 4);
     }
 }
 

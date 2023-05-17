@@ -40,6 +40,7 @@ export class WhiteBoard {
             cy.get(this.sizeSlider).should('be.visible')
             cy.get('body')
                 .realClick({x:rect.x+(rect.width/(100/percent)),y:rect.y+5})
+            cy.get(this.canvas).realHover({position:'topLeft'});
             //.realMouseMove(rect.width/(100/percent),(rect.height/2), {position:"topLeft"})
             //.realMouseUp(rect.width/(100/percent),(rect.height/2), {position:"topLeft"});
         })
