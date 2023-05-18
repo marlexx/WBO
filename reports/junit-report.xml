@@ -1,28 +1,42 @@
 <?xml version='1.0' encoding='utf-8'?>
-<testsuites tests="3" failures="1" errors="0" skipped="0" time="17.094"><testsuite name="Root Suite" timestamp="2023-05-17T13:01:46" tests="0" file="cypress\e2e\pisiOlovkom.cy.js" time="0" failures="0" errors="0" skipped="0">
+<testsuites tests="6" failures="2" errors="0" skipped="0" time="47.256"><testsuite name="Root Suite" timestamp="2023-05-18T09:41:51" tests="0" file="cypress\e2e\akoseDajSlanine.cy.js" time="0" failures="0" errors="0" skipped="0">
   </testsuite>
-  <testsuite name="Pisanje" timestamp="2023-05-17T13:01:46" tests="1" time="10.413" failures="0" errors="0" skipped="0">
-    <testcase name="Pisanje napise sta mu kazes do 5 slova" time="10.413" classname="napise sta mu kazes do 5 slova">
+  <testsuite name="Slanina" timestamp="2023-05-18T09:41:51" tests="1" time="6.276" failures="0" errors="0" skipped="0">
+    <testcase name="Slanina Akos ti da slanine" time="6.276" classname="Akos ti da slanine">
     </testcase>
   </testsuite>
-<testsuite name="Root Suite" timestamp="2023-05-17T13:01:35" tests="0" file="cypress\e2e\akoseDajSlanine.cy.js" time="0" failures="0" errors="0" skipped="0">
+<testsuite name="Root Suite" timestamp="2023-05-18T09:42:33" tests="0" file="cypress\e2e\testRailAPI.cy.js" time="0" failures="0" errors="0" skipped="0">
   </testsuite>
-  <testsuite name="Slanina" timestamp="2023-05-17T13:01:35" tests="1" time="6.681" failures="0" errors="0" skipped="0">
-    <testcase name="Slanina Akos ti da slanine" time="6.681" classname="Akos ti da slanine">
-    </testcase>
-  </testsuite>
-<testsuite name="Root Suite" timestamp="2023-05-17T13:02:00" tests="0" file="cypress\e2e\testRailAPI.cy.js" time="0" failures="0" errors="0" skipped="0">
-  </testsuite>
-  <testsuite name="TR" timestamp="2023-05-17T13:02:00" tests="1" time="0.0" failures="1" errors="0" skipped="0">
-    <testcase name="TR requests" time="0.000" classname="requests">
+  <testsuite name="TR" timestamp="2023-05-18T09:42:33" tests="3" time="14.164" failures="2" errors="0" skipped="0">
+    <testcase name="TR requests0" time="0.000" classname="requests0">
       <failure message="expected [ Array(2) ] to have a length of 1 but got 2" type="AssertionError">AssertionError: expected [ Array(2) ] to have a length of 1 but got 2
-    at Context.eval (webpack:///./cypress/e2e/testRailAPI.cy.js:13:51)
+    at Context.eval (webpack:///./cypress/e2e/testRailAPI.cy.js:14:68)
 
       + expected - actual
 
       -2
       +1
       </failure>
+    </testcase>
+    <testcase name="TR requests1" time="0.000" classname="requests1">
+      <failure message="expected [ Array(2) ] to have a length of 1 but got 2" type="AssertionError">AssertionError: expected [ Array(2) ] to have a length of 1 but got 2
+    at Context.eval (webpack:///./cypress/e2e/testRailAPI.cy.js:14:68)
+
+      + expected - actual
+
+      -2
+      +1
+      </failure>
+    </testcase>
+    <testcase name="TR intercepts" time="14.164" classname="intercepts">
+    </testcase>
+  </testsuite>
+<testsuite name="Root Suite" timestamp="2023-05-18T09:42:01" tests="0" file="cypress\e2e\pisiOlovkom.cy.js" time="0" failures="0" errors="0" skipped="0">
+  </testsuite>
+  <testsuite name="Pisanje" timestamp="2023-05-18T09:42:01" tests="2" time="26.816" failures="0" errors="0" skipped="0">
+    <testcase name="Pisanje napise sta mu kazes do 3 reda br.0" time="13.494" classname="napise sta mu kazes do 3 reda br.0">
+    </testcase>
+    <testcase name="Pisanje napise sta mu kazes do 3 reda br.1" time="13.322" classname="napise sta mu kazes do 3 reda br.1">
     </testcase>
   </testsuite>
 </testsuites>
